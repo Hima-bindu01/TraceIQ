@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#f5f6f8" />
+<title>TraceIQ — AI-Powered Incident Intelligence</title>
+<script>try{var t=localStorage.getItem('traceiq-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme='light'}</script>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo" viewBox="0 0 32 32"><circle cx="14" cy="14" r="9" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M21 21l7 7" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/><path d="M8.5 15.5l3.5-4 3 3 3-4" fill="none" stroke="var(--blu)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8.5" cy="15.5" r="1.6" fill="var(--blu)"/><circle cx="18" cy="10.5" r="1.6" fill="var(--blu)"/></symbol></svg>
+
+<div class="shell">
+  <aside class="sidebar" id="sidebar">
+    <div>
+      <div class="brand" data-page="home" role="button" tabindex="0" aria-label="TraceIQ overview">
+        <svg><use href="#logo"/></svg>
+        <div class="lbl"><b>TRACEIQ</b><small>AI-Powered Incident Intelligence</small></div>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <button class="nav-item active" data-page="home"><i data-ic="grid"></i><span class="lbl">Overview</span></button>
+        <button class="nav-item" data-page="incidents"><i data-ic="alert"></i><span class="lbl">Incidents</span><em class="lbl count" id="open-count">2</em></button>
+        <button class="nav-item" data-page="investigation"><i data-ic="search"></i><span class="lbl">Investigation</span></button>
+        <button class="nav-item" data-page="memory"><i data-ic="layers"></i><span class="lbl">Historical Intelligence</span></button>
+        <button class="nav-item" data-page="resolutions"><i data-ic="res"></i><span class="lbl">Resolutions</span></button>
+        <button class="nav-item" data-page="settings"><i data-ic="cog"></i><span class="lbl">System</span></button>
+      </nav>
+    </div>
+    <div class="side-status lbl-wrap">
+      <div><span>Memory</span><b class="ok"><i class="dot"></i><span class="lbl">ONLINE</span></b></div>
+      <div><span>Hindsight</span><b class="ok"><i class="dot"></i><span class="lbl">CONNECTED</span></b></div>
+      <div><span>Agent</span><b class="ok"><i class="dot"></i><span class="lbl">READY</span></b></div>
+    </div>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+
+  <div class="col">
+    <header class="topbar">
+      <button class="icon-btn" id="menu-btn" aria-label="Toggle navigation"><i data-ic="menu"></i></button>
+      <div class="brand mobile-brand" data-page="home" role="button" tabindex="0"><svg><use href="#logo"/></svg><b>TRACEIQ</b></div>
+      <form class="search" id="hsearch" role="search"><i data-ic="search"></i><input id="hsearch-input" placeholder="Search incidents, services, errors" aria-label="Search incidents" autocomplete="off" /></form>
+      <div class="live-status" title="API, memory, Hindsight and agent are all operational"><i class="dot"></i><span>All systems operational</span></div>
+      <button class="btn ask-btn" id="ask-btn"><i data-ic="ask"></i><span>Ask TraceIQ</span></button>
+      <div class="theme-switch" role="group" aria-label="Theme">
+        <i class="thumb"></i>
+        <button type="button" class="theme-choice" data-theme-choice="light" aria-pressed="false" aria-label="Light mode"><i data-ic="sun"></i></button>
+        <button type="button" class="theme-choice" data-theme-choice="dark" aria-pressed="false" aria-label="Dark mode"><i data-ic="moon"></i></button>
+      </div>
+      <div class="avatar" title="Team Aurora">DA</div>
+    </header>
+    <main id="main" class="main"></main>
+  </div>
+
+  <aside class="drawer" id="drawer" aria-label="Ask TraceIQ">
+    <div class="drawer-h"><div><b>Ask TraceIQ</b><small>Answers come from stored incident history</small></div><button class="icon-btn" id="drawer-close" aria-label="Close"><i data-ic="x"></i></button></div>
+    <div id="chat" class="chat"></div>
+    <div class="suggest">
+      <button data-action="similar">Find similar</button>
+      <button data-action="failed">What failed before?</button>
+      <button data-action="steps">Investigation plan</button>
+    </div>
+    <form id="chat-form" class="chat-input"><input id="message" placeholder="Ask about an incident or service" autocomplete="off" /><button class="btn" aria-label="Send">Send</button></form>
+  </aside>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="js/script.js"></script>
+</body>
+</html>
